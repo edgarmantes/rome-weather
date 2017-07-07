@@ -71,8 +71,12 @@ Default Grid Settings
 
 
 
-
-
+/*****************
+Container HTML
+*****************/
+.container {
+	margin-top: 55px;
+}
 
 /*****************
 App Component
@@ -86,13 +90,73 @@ App Component
 Header Component
 *****************/
 .header-container {
-	background-color: lightblue;
+	background-color: lightblue;  /* Place holder */
+	position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 50px;
+}
+
+
+/*****************
+Tabs Component
+*****************/
+.tabs {
+	background-color: gray; /* Place holder */
+	padding-left: 0;
+}
+
+.tabs > a > li {
+	list-style: none;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+
+/*****************
+Current Component
+*****************/
+.current-container {
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+
+/*****************
+FiveDay Component
+*****************/
+.fiveday-container {
+	background-color: white;	
 }
 
 
 /*****************
 *****************/
 
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
+
+/*****************
+*****************/
 
 
 /*****************
