@@ -123,6 +123,12 @@ Current Component
 	margin-bottom: 5px;
 }
 
+.current-temp, .current-range, .current-humidity {
+	text-align: center;
+    width: 50%;
+    align-items: inherit;
+}
+
 
 /*****************
 FiveDay Component
