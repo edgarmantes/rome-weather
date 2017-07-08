@@ -16,20 +16,27 @@ class Current extends Component {
 
 	render() {
 		
-		let Temp;
+		let currentTemp;
+		let currentHumidity;
+		let currentHi;
+		let currentLow;
 
 		if(!this.props.currentTemp){
-			Temp = "Wait..."
+			currentTemp = "Wait..."
 		} else {
-			Temp = this.props.currentTemp
+			currentTemp = Math.ceil(this.props.currentTemp);
+			currentHumidity = Math.ceil(this.props.currentHumidity);
+			currentHi = Math.ceil(this.props.currentHi);
+			currentLow = Math.ceil(this.props.currentLow)
 		}	
 
 		return (
 			<div className="current-container">
-				<div className="current-temp">75<span>&#8457;</span></div>
+				<div className="current-temp">{currentTemp}<span>&#8457;</span></div>
 				<div className="current-range">
-					<span className="current-hi">hi:80/</span><span>lo:50</span>
+					<span className="current-hi">hi:{currentHi}/</span><span>lo:{currentLow}</span>
 				</div>
+				<div className="current-humidity">hum:{currentHumidity}&#176;</div>
 			</div>
 		);	
 
@@ -40,10 +47,10 @@ class Current extends Component {
 function mapStateToProps(state, props) {
 
 	return {
-		currentTemp: state.currentTemp.temp//.currentTemp | null
-		// currentHumidity:
-		// hi:
-		// low:
+		currentTemp: state.currentTemp.temp,
+		currentHumidity: state.currentTemp.humidity,
+		currentHi: state.currentTemp.hi,
+		currentLow: state.currentTemp.lo,
 		// sky:
 		// windSpped:
 		// windDirec:

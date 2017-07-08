@@ -6,7 +6,10 @@ export default function(state={}, action){
 			// console.log('reducer_currentdata', action.payload)
 			return Object.assign( {}, state, {
 				temp : action.payload.main.temp,
-				humidity: action.payload.main.humidity
+				humidity: action.payload.main.humidity,
+				hi: action.payload.main.temp_max,
+				lo: action.payload.main.temp_min
+
 			})
 
 		default:
