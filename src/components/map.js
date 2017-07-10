@@ -2,8 +2,6 @@
 import React, { Component } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
-console.log(<TileLayer/>)
-
 export default class SimpleExample extends Component {
   state = {
     lat: 41.890251,
@@ -32,7 +30,7 @@ export default class SimpleExample extends Component {
 
         <Marker position={position}>
           <Popup>
-            <span>A pretty CSS3 popup. <br /> Easily customizable.</span>
+            <span>When in Rome... <br /> Enjoy it! :)</span>
           </Popup>
         </Marker>
       </Map>
