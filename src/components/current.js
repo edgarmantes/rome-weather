@@ -45,15 +45,11 @@ class Current extends Component {
 
 
 function mapStateToProps(state, props) {
-
 	return {
 		currentTemp: state.currentTemp.temp,
 		currentHumidity: state.currentTemp.humidity,
 		currentHi: state.currentTemp.hi,
 		currentLow: state.currentTemp.lo,
-		// sky:
-		// windSpped:
-		// windDirec:
 	}
 }
 

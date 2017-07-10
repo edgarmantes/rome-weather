@@ -6,6 +6,11 @@ Universal Styles
  
 * {
 	box-sizing: border-box;
+
+}
+
+ul {
+	list-style: none;
 }
 
 html, body, .container {
@@ -137,6 +142,40 @@ FiveDay Component
 	background-color: white;	
 }
 
+.five-day {
+	display: inline-block;
+	width:35%;
+}
+
+.five-temps {
+	display: inline-block;
+	width: 30%;
+    text-align: center;
+}
+
+.five-hi, .five-lo {
+	margin-bottom: 5px;
+}
+
+.five-img-cont {
+	display: inline-block;
+}
+
+.five-img {
+	height: 70px;
+}
+
+/*****************
+Precip Container
+*****************/
+#mapid { 
+	height: 180px; 
+}
+
+.leaflet-container {
+    height: 400px;
+    width: 100%;
+}
 
 /*****************
 *****************/
@@ -157,13 +196,10 @@ FiveDay Component
 /*****************
 *****************/
 
-
-/*****************
-*****************/
-
 /*****************
 *****************/
 
 
 /*****************
 *****************/
+
