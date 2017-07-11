@@ -22,17 +22,15 @@ class FiveDay extends Component {
 				let hi = Math.ceil(data.temp.max);
 				let lo = Math.ceil(data.temp.min);
 				let myDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-				console.log(day)
+
 				let weekday = myDays[day+index+1]
 
-
-				console.log("before adding to list",weekday)
 				return <DayCast key={index} day={weekday} hi={hi} lo={lo} icon={data.weather[0].icon}/>
 			
 			})		
 		
 		}
-
+		console.log("fiveday, check store", this.props)
 		return (
 			<div className="fiveday-container">
 				<ul>
@@ -47,7 +45,8 @@ class FiveDay extends Component {
 function mapStateToProps(state, props) {
 
 	return {
-		daysList: state.fiveDay.daysList
+		daysList: state.fiveDay.daysList,
+		unit: state.unit
 	}
 }
 
