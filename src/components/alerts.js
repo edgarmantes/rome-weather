@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import getAlerts from '../actions/getAlerts'
 
 // Components
 
 
 class Alerts extends Component {
+
+	componentDidMount(){
+		this.props.dispatch(getAlerts())
+	}
+
 	render() {
 		return (
 			<div className="alerts-container">

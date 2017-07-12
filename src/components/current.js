@@ -26,7 +26,7 @@ class Current extends Component {
 		this.props.dispatch(getCurrentData("Imperial"));
 		this.props.dispatch(getFiveDay());
 		this.props.dispatch(getPollutCO());
-		this.props.dispatch(getPollutNO());
+		// this.props.dispatch(getPollutNO());
 	}
 
 	componentWillMount(){
@@ -113,7 +113,7 @@ class Current extends Component {
 
 
 function mapStateToProps(state, props) {
-	console.log("state-pol", state)
+
 	return {
 		currentTemp: state.currentTemp.temp,
 		currentHumidity: state.currentTemp.humidity,
