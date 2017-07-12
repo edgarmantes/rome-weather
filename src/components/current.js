@@ -7,6 +7,8 @@ import  getCurrentData  from '../actions/getCurrentData';
 import getFiveDay from '../actions/getFiveDay';
 import changeUnit from '../actions/changeUnit';
 import convertData from '../actions/convertData';
+import getPollutCO from '../actions/getPollutCO';
+import getPollutNO from '../actions/getPollutNO';
 
 // Component 
 import Pollut from './pollut';
@@ -21,9 +23,10 @@ class Current extends Component {
 	}
 
 	componentDidMount(){
-
 		this.props.dispatch(getCurrentData("Imperial"));
 		this.props.dispatch(getFiveDay());
+		this.props.dispatch(getPollutCO());
+		this.props.dispatch(getPollutNO());
 	}
 
 	componentWillMount(){
@@ -61,12 +64,9 @@ class Current extends Component {
 					this.props.dispatch(changeUnit(<span>&#8451;</span>))
 
 					return
-			}
-			
+			}			
 		}
-		
 	}
-
 
 	render() {
 		
@@ -104,7 +104,7 @@ class Current extends Component {
 				  <option value="C">C&#176;</option>
 				  <option value="Both">F&#176;/C&#176;</option>
 				</select>
-				<Pollut />
+				<Pollut co={this.props.co} no={this.props.no}/>
 			</div>
 		);	
 
@@ -113,16 +113,18 @@ class Current extends Component {
 
 
 function mapStateToProps(state, props) {
-
+	console.log("state-pol", state)
 	return {
 		currentTemp: state.currentTemp.temp,
 		currentHumidity: state.currentTemp.humidity,
 		currentHi: state.currentTemp.hi,
 		currentLow: state.currentTemp.lo,
-		unit: state.changeUnit.unit
+		unit: state.changeUnit.unit,
+
+		co: state.getPollut.co,
+		no: state.getPollut.no
 	}
 }
-
 
 export default connect(mapStateToProps)(Current)
 
