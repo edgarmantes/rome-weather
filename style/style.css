@@ -126,14 +126,34 @@ Current Component
 .current-container {
 	background-color: white;
 	margin-bottom: 5px;
+	position: relative;
+}
+
+.current-weather {
+	display: inline-block;
+    width: 50%;
+    padding: 20px;
 }
 
 .current-temp, .current-range, .current-humidity {
 	text-align: center;
-    width: 50%;
     align-items: inherit;
 }
 
+.current-temp {
+	font-size: 58px;
+}
+
+.current-symb {
+	font-size: 20px;
+}
+
+.current-container > select {
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 36px;
+}
 
 /*****************
 FiveDay Component
@@ -142,15 +162,29 @@ FiveDay Component
 	background-color: white;	
 }
 
+.fiveday-container > ul > li {
+    margin: 5px 0;
+    height: 100px;
+    padding: 18px 10px;
+    border-bottom: 2px solid lightgray;
+
+}
+
+.fiveday-container > ul {
+	padding: 0 8px;
+}
+
 .five-day {
 	display: inline-block;
 	width:35%;
+	font-size: 25px;
 }
 
 .five-temps {
 	display: inline-block;
 	width: 30%;
     text-align: center;
+    vertical-align: middle;
 }
 
 .five-hi, .five-lo {
@@ -178,15 +212,51 @@ Precip Container
 }
 
 /*****************
+Alert Container
 *****************/
+.alerts-hdr {
+	background-color: red;
+    color: black;
+    text-align: center;
+    padding: 14px;
+}
 
+.alerts-container {
+	background-color: white;
+}
+
+.alert-day	{
+	display: inline-block;
+    font-size: 30px;
+    width: 50%;
+}
+
+.alert-temp {
+	display: inline-block;
+    width: 25%;
+    font-size: 22px;
+}
 
 /*****************
+Precip container
 *****************/
+.Precip-container {
+	height: 90vh;
+}
 
+.leaflet-container {
+	height:83vh;
+}
 
 /*****************
+Pollut container
 *****************/
+.pollut-container {
+	display: inline-block;
+    width: 40%;
+    text-align: center;
+}
+
 
 
 /*****************

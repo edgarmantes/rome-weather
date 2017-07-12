@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+// Components
 import Current from './current';
 import FiveDay from './fiveday';
+import Alerts from './alerts';
 
 export default class Forecast extends Component {
 	render() {
@@ -9,6 +11,7 @@ export default class Forecast extends Component {
 			<div className="Precip-container">
 				<Current />
 				<FiveDay />
+				<Alerts />
 			</div>
 		);
 	}
