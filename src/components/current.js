@@ -22,7 +22,7 @@ class Current extends Component {
 
 	componentDidMount(){
 
-		this.props.dispatch(getCurrentData());
+		this.props.dispatch(getCurrentData("Imperial"));
 		this.props.dispatch(getFiveDay());
 	}
 
@@ -40,15 +40,29 @@ class Current extends Component {
 			unit: event.target.value
 		}
 
-		if(event.target.value ==="F"){
+		if(event.target.value ==="F" && (!(typeof(this.props.currentTemp)==="string")) ){
+			
 			this.props.dispatch(changeUnit(<span>&#8457;</span>))
 			this.props.dispatch(convertData(data))
-		} else if(event.target.value === "C"){
+		} else if(event.target.value === "C"  && (!(typeof(this.props.currentTemp)==="string"))){
 			this.props.dispatch(changeUnit(<span>&#8451;</span>))
 			this.props.dispatch(convertData(data))
-		} else {
+		} else if(event.target.value === "Both"){
 			this.props.dispatch(changeUnit(<span>&#8457; / &#8451;</span>))
 			this.props.dispatch(convertData(data))
+		} else {
+			switch(event.target.value){
+				case 'F':
+					this.props.dispatch(getCurrentData("Imperial"));
+					this.props.dispatch(changeUnit(<span>&#8457;</span>))
+					return
+				case 'C':
+					this.props.dispatch(getCurrentData("Metric"));
+					this.props.dispatch(changeUnit(<span>&#8451;</span>))
+
+					return
+			}
+			
 		}
 		
 	}
@@ -56,18 +70,19 @@ class Current extends Component {
 
 	render() {
 		
-		let currentTemp;
-		let currentHumidity;
-		let currentHi;
-		let currentLow;
-		console.log("TTTTT",typeof(this.props.currentTemp))
-		if(!this.props.currentTemp){
+		var currentTemp;
+		var currentHumidity;
+		var currentHi;
+		var currentLow;
+
+
+		if(!this.props.currentTemp && this.props.currentTemp===undefined){
 			currentTemp = "Wait..."
 		} else if(typeof(this.props.currentTemp)===Number){
-			currentTemp = Math.ceil(this.props.currentTemp);
-			currentHumidity = Math.ceil(this.props.currentHumidity);
-			currentHi = Math.ceil(this.props.currentHi);
-			currentLow = Math.ceil(this.props.currentLow)
+			currentTemp = this.props.currentTemp;
+			currentHumidity = this.props.currentHumidity;
+			currentHi = this.props.currentHi;
+			currentLow = this.props.currentLow
 		} else {
 			currentTemp = this.props.currentTemp;
 			currentHumidity = this.props.currentHumidity;

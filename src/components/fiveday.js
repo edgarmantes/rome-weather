@@ -30,7 +30,7 @@ class FiveDay extends Component {
 			})		
 		
 		}
-		console.log("fiveday, check store", this.props)
+
 		return (
 			<div className="fiveday-container">
 				<ul>

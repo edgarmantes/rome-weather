@@ -8,9 +8,9 @@ function resolvedCurrentData(data) {
 
 }
 
-export default function getCurrentData(){
+export default function getCurrentData(unit){
 
-	const URL = "http://api.openweathermap.org/data/2.5/weather?q=Rome,IT&units=Imperial&APPID=698009a4dde62e48490582289f422bd2";
+	const URL = "http://api.openweathermap.org/data/2.5/weather?q=Rome,IT&units="+unit+"&APPID=698009a4dde62e48490582289f422bd2";
 
 	return dispatch => {
 		return fetch(URL).then( (response) => response.json()
