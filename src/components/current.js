@@ -43,14 +43,17 @@ class Current extends Component {
 			unit: event.target.value
 		}
 
+		// This Changes the values celcius, fahrenheit or both. Also changes the units
 		if(event.target.value ==="F" && (!(typeof(this.props.currentTemp)==="string")) ){
-			
+			// Initial units
 			this.props.dispatch(changeUnit(<span>&#8457;</span>))
 			this.props.dispatch(convertData(data))
 		} else if(event.target.value === "C"  && (!(typeof(this.props.currentTemp)==="string"))){
+			// change units to Celcius
 			this.props.dispatch(changeUnit(<span>&#8451;</span>))
 			this.props.dispatch(convertData(data))
 		} else if(event.target.value === "Both"){
+			// Changes to both units
 			this.props.dispatch(changeUnit(<span>&#8457; / &#8451;</span>))
 			this.props.dispatch(convertData(data))
 		} else {

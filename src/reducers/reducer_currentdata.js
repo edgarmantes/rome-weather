@@ -63,14 +63,16 @@ export default function(state={}, action){
 								temp : state.temp+"/"+ctemp,
 								humidity: state.humidity,
 								hi: state.hi+"/"+chi,
-								lo: state.lo+"/"+clo
+								lo: state.lo+"/"+clo,
+								unit: action.payload.unit
 							})
 						case 'C':
 							return Object.assign( {}, state, {
 								temp : ftemp+"/"+state.temp,
 								humidity: state.humidity,
 								hi: fhi+"/"+state.hi,
-								lo: flo+"/"+state.lo
+								lo: flo+"/"+state.lo,
+								unit: action.payload.unit
 
 							})	
 					}
