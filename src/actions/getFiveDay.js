@@ -10,7 +10,7 @@ function resolvedFiveDay(data) {
 
 export default function getFiveDay(unit){
 
-	const URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=5&units="+unit+"&appid=698009a4dde62e48490582289f422bd2";
+	const URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Rome,IT&cnt=5&units="+unit+"&appid=698009a4dde62e48490582289f422bd2";
 
 	return dispatch => {
 		return fetch(URL).then(  
