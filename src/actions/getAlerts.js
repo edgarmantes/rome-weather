@@ -6,7 +6,7 @@ function resolvedGetAlert(data){
 	}
 }
 
-export default function getAlerts(){
+export default function getAlerts(unit){
 
 	const URL = "http://api.openweathermap.org/data/3.0/triggers?appid=698009a4dde62e48490582289f422bd2";
 
@@ -14,7 +14,12 @@ export default function getAlerts(){
 		return fetch(URL).then(  
 			response => response.json()		
 		).then( (object) => {
-			return dispatch(resolvedGetAlert(object))
+			let data = {
+				unit: unit,
+				object: object
+			}
+
+			return dispatch(resolvedGetAlert(data))
 		}).catch( (error) => {
 			alert(error)
 			return console.log(error)

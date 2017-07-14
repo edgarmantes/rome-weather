@@ -8,15 +8,20 @@ function resolvedFiveDay(data) {
 
 }
 
-export default function getFiveDay(){
+export default function getFiveDay(unit){
 
-	const URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=5&units=imperial&appid=698009a4dde62e48490582289f422bd2";
+	const URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=London&cnt=5&units="+unit+"&appid=698009a4dde62e48490582289f422bd2";
 
 	return dispatch => {
 		return fetch(URL).then(  
 			response => response.json()		
 		).then( (object) => {
-			return dispatch(resolvedFiveDay(object))
+			let data ={
+				unit: unit,
+				object: object
+			}
+
+			return dispatch(resolvedFiveDay(data))
 		}).catch( (error) => {
 			alert(error)
 			return console.log(error)

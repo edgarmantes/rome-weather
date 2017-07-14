@@ -3,23 +3,33 @@ export default function(state={}, action){
 	switch(action.type){
 		case 'GET_ALERTS':
 						
-			let query = action.payload.filter(function(object){
+			let query = action.payload.object.filter(function(object){
 					return object.conditions[0]._id === "5966a1fb33d810006484033b"
 			})
 
 			// Array of dates as a string in UTC format
 			let alertsList = query[0].alerts;
-			let myAlerts = Object.values(alertsList).reverse().map(function(alert){
-				
+
+			let myAlerts = Object.values(alertsList).reverse().map(function(alert){			
 				// grab UTC date as String
 				let dat = new Date(alert.date).toString();
+				
 				// grabs high temp if that day
 				let hi = alert.conditions[0].current_value.max
-				let hiFahr = Math.ceil(((hi - 273.15) * 1.8) + 32)
+				let unit;
+
+				if(action.payload.unit==='F') {
+					unit = Math.ceil(((hi - 273.15) * 1.8) + 32)
+				} else if (action.payload.unit==='C'){
+					unit = Math.ceil(hi - 273.15)
+				} else {
+					unit = Math.ceil(((hi - 273.15) * 1.8) + 32)+"/"+Math.ceil(hi - 273.15)
+				}
+
 				// passes object with data and high temp for each day
 				let data = {
 					date: dat,
-					hi: hiFahr
+					hi: unit
 				}
 				return data
 			})

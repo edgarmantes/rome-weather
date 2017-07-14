@@ -10,7 +10,6 @@ export default class Precip extends Component {
 
 		return (
 			<div className="Precip-container">
-				<h1>Precipitation Map</h1>
 				<Map />
 			</div>			
 		);
