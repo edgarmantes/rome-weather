@@ -13,17 +13,38 @@ class FiveDay extends Component {
 		if(!this.props.daysList){
 			daylist = "Waiting..."			
 			
+
 		} else {
 
-			daylist = this.props.daysList.map( function(data, index) {
+			daylist = this.props.daysList.object.list.map( (data, index) => {
 				let date = new Date();
-				let day = date.getDay();
-				
-				let hi = Math.ceil(data.temp.max);
-				let lo = Math.ceil(data.temp.min);
-				let myDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+				let day = date.getDay();		
+				let hi;
+				let lo;
+				let myDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+				let weekday;
 
-				let weekday = myDays[day+index+1]
+				if ((day+index)<myDays.length){
+					weekday = myDays[day+index]
+				} else {
+					weekday = myDays[(day+index)-7]
+
+				}
+				if(this.props.changeUnitTo==="℉/℃"){
+
+					switch(this.props.daysList.unit){
+						case 'Imperial':
+							hi = Math.ceil(data.temp.max)+"/"+Math.ceil(((data.temp.max) - 32) * 5/9);
+							lo = Math.ceil(data.temp.min)+"/"+Math.ceil(((data.temp.min) - 32) * 5/9);
+							
+						case 'Metric':
+							hi = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.max)
+							lo = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.min)
+					}					
+				} else if (this.props.changeUnitTo==="℉" || "℃"){
+					hi = Math.ceil(data.temp.max);
+					lo = Math.ceil(data.temp.min);
+				}
 
 				return <DayCast key={index} day={weekday} hi={hi} lo={lo} icon={data.weather[0].icon}/>
 			
@@ -32,7 +53,7 @@ class FiveDay extends Component {
 		}
 
 		return (
-			<div className="fiveday-container">
+			<div className="fiveday-container col-6">
 				<ul>
 					{daylist}
 				</ul>
@@ -46,7 +67,8 @@ function mapStateToProps(state, props) {
 
 	return {
 		daysList: state.fiveDay.daysList,
-		unit: state.unit
+		unit: state.unit,
+		changeUnitTo: state.changeUnit.unit.props.children
 	}
 }
 

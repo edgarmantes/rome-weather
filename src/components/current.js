@@ -9,6 +9,7 @@ import changeUnit from '../actions/changeUnit';
 import convertData from '../actions/convertData';
 import getPollutCO from '../actions/getPollutCO';
 import getPollutNO from '../actions/getPollutNO';
+import getAlerts from '../actions/getAlerts';
 
 // Component 
 import Pollut from './pollut';
@@ -24,9 +25,8 @@ class Current extends Component {
 
 	componentDidMount(){
 		this.props.dispatch(getCurrentData("Imperial"));
-		this.props.dispatch(getFiveDay());
+		this.props.dispatch(getFiveDay("Imperial"));
 		this.props.dispatch(getPollutCO());
-		// this.props.dispatch(getPollutNO());
 	}
 
 	componentWillMount(){
@@ -43,16 +43,24 @@ class Current extends Component {
 			unit: event.target.value
 		}
 
+		// This Changes the values celcius, fahrenheit or both. Also changes the units
 		if(event.target.value ==="F" && (!(typeof(this.props.currentTemp)==="string")) ){
-			
-			this.props.dispatch(changeUnit(<span>&#8457;</span>))
-			this.props.dispatch(convertData(data))
+			// Initial units
+			this.props.dispatch(changeUnit(<span>&#8457;</span>)) //  changes unit of measure symbol
+			this.props.dispatch(convertData(data)) // converts data to selected unit or both
+			this.props.dispatch(getAlerts('F')) // Updates alerts temps on unit change
+			this.props.dispatch(getFiveDay("Imperial"));
 		} else if(event.target.value === "C"  && (!(typeof(this.props.currentTemp)==="string"))){
+			// change units to Celcius
 			this.props.dispatch(changeUnit(<span>&#8451;</span>))
 			this.props.dispatch(convertData(data))
+			this.props.dispatch(getAlerts('C'))
+			this.props.dispatch(getFiveDay("Metric"));
 		} else if(event.target.value === "Both"){
-			this.props.dispatch(changeUnit(<span>&#8457; / &#8451;</span>))
+			// Changes to both units
+			this.props.dispatch(changeUnit(<span>&#8457;/&#8451;</span>))
 			this.props.dispatch(convertData(data))
+			this.props.dispatch(getAlerts('Both'))
 		} else {
 			switch(event.target.value){
 				case 'F':
@@ -95,9 +103,9 @@ class Current extends Component {
 				<div className="current-weather">
 					<div className="current-temp">{currentTemp}<span className="current-symb">{this.props.unit}</span></div>
 					<div className="current-range">
-						<span className="current-hi">hi:{currentHi}&#176;/</span><span>lo:{currentLow}&#176;</span>
+						<span className="current-hi">hi: {currentHi}&#176;/</span><span>lo: {currentLow}&#176;</span>
 					</div>
-					<div className="current-humidity">hum:{currentHumidity}&#37;</div>				
+					<div className="current-humidity">hum: {currentHumidity}&#37;</div>				
 				</div>
 				<select value={this.state.value} onChange={this.handleChange}>
 				  <option value="F">F&#176;</option>

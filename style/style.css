@@ -1,4 +1,6 @@
 /*****************
+font-family: 'Cabin', sans-serif;
+font-family: 'Droid Sans', sans-serif;
 *****************/
 /*********
 Universal Styles
@@ -6,7 +8,8 @@ Universal Styles
  
 * {
 	box-sizing: border-box;
-
+	font-family: 'Droid Sans';
+	color: white;
 }
 
 ul {
@@ -16,8 +19,26 @@ ul {
 html, body, .container {
 	height:100%;
 	width: 100%;
-	max-width: 1100px;
-	background-color: lightgray;
+	/*max-width: 1100px;*/
+	background-color: transparent;
+}
+
+html {
+	margin-left: auto;
+    margin-right: auto;
+    background-image: url(../src/img/sky2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: cover;
+}
+
+select {
+	background-color: transparent;
+    border: 1px solid lightgray;
+}
+
+option {
+	background-color: gray;
 }
 
 /*****************
@@ -60,19 +81,7 @@ Default Grid Settings
 640px screen or larger
 *****************/
 
-@media only screen and (min-width: 640px) {
-	.col-3 {
-		width: 25%;
-	}
 
-	.col-4 {
-		width: 33.33%;
-	}
-
-	.col-6 {
-		width: 50%;
-	}
-}
 
 
 
@@ -95,12 +104,19 @@ App Component
 Header Component
 *****************/
 .header-container {
-	background-color: lightblue;  /* Place holder */
+	background-color: rgb(0, 102, 255);
 	position: fixed;
     left: 0;
     top: 0;
     right: 0;
     height: 50px;
+    z-index: 5;
+}
+
+.header-container > h1 {
+	text-align: center;
+	margin: 0;
+    padding: 6px;
 }
 
 
@@ -108,15 +124,29 @@ Header Component
 Tabs Component
 *****************/
 .tabs {
-	background-color: gray; /* Place holder */
+	/*background-color: transparent; /* Place holder */
 	padding-left: 0;
+	margin-bottom: 0;
+	text-align: center;
 }
 
 .tabs > a > li {
 	list-style: none;
     display: inline-block;
-    width: 50%;
+    width: 40%;
     text-align: center;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.8);
+}
+
+.tab {
+	padding: 10px 0;
+    color: blue;
+}
+
+.tab:focus {
+	background-color: transparent;
+    color: white;
 }
 
 
@@ -124,7 +154,7 @@ Tabs Component
 Current Component
 *****************/
 .current-container {
-	background-color: white;
+	background-color: transparent;
 	margin-bottom: 5px;
 	position: relative;
 }
@@ -140,12 +170,18 @@ Current Component
     align-items: inherit;
 }
 
+.current-range, .current-humidity {
+		font-size: 13px;
+}
+
 .current-temp {
-	font-size: 58px;
+	font-size: 41px;
+	font-weight: bold;
+
 }
 
 .current-symb {
-	font-size: 20px;
+	font-size: 13px;
 }
 
 .current-container > select {
@@ -159,7 +195,7 @@ Current Component
 FiveDay Component
 *****************/
 .fiveday-container {
-	background-color: white;	
+	background-color: transparent;	
 }
 
 .fiveday-container > ul > li {
@@ -178,6 +214,11 @@ FiveDay Component
 	display: inline-block;
 	width:35%;
 	font-size: 25px;
+    font-weight: bold;
+}
+
+.fiveday-container > ul > li:nth-child(5) {
+	border-bottom: none
 }
 
 .five-temps {
@@ -215,26 +256,35 @@ Precip Container
 Alert Container
 *****************/
 .alerts-hdr {
-	background-color: red;
-    color: black;
+    color: red;
     text-align: center;
     padding: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .alerts-container {
-	background-color: white;
+	background-color: transparent;
 }
 
 .alert-day	{
 	display: inline-block;
-    font-size: 30px;
+    font-size: 19px;
+    font-weight: bold;
     width: 50%;
+}
+
+.alert-date {
+	font-size: 18px;
+	font-weight: normal;
 }
 
 .alert-temp {
 	display: inline-block;
     width: 25%;
-    font-size: 22px;
+    font-size: 15px;
+    text-align: center;
 }
 
 /*****************
@@ -246,6 +296,10 @@ Precip container
 
 .leaflet-container {
 	height:83vh;
+	position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 /*****************
@@ -257,6 +311,126 @@ Pollut container
     text-align: center;
 }
 
+.pollut-container > h3 {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.pollut-container > p > span {
+	font-weight: bold;
+}
+
+
+
+
+@media only screen and ( min-width: 600px ) {
+
+/*****************
+*****************/
+
+
+/*****************
+Current Component
+*****************/
+.current-temp {
+	font-size: 60px;
+}
+
+.current-range, .current-humidity {
+    font-size: 16px;
+}
+
+.leaflet-container {
+    height: 86vh;
+}
+
+/*****************
+Pollute Comp
+*****************/
+.pollut-container > h3 {
+    font-size: 28px;
+}
+
+.pollut-container > p {
+	font-size: 20px;
+}
+
+/*****************
+fiveday comp
+*****************/
+.five-day {
+	font-size: 35px;
+}
+
+
+/*****************
+Alerts comp
+*****************/
+.alerts-hdr {
+	font-size: 41px;
+}
+
+.alert-day {
+	font-size: 30px;
+}
+
+.alert-temp {
+	font-size: 22px;
+}
+
+
+
+
+@media only screen and (min-width: 992px) {
+	.col-3 {
+		width: 25%;
+	}
+
+	.col-4 {
+		width: 33.33%;
+	}
+
+	.col-6 {
+		width: 50%;
+	}
+
+
+	.alerts-container {
+		border-left: 1px solid white;
+
+	}
+}
+/*****************
+Tabs comp
+*****************/
+.tabs > a > li {
+    font-size: 25px;
+}
+
+
+/*****************
+Current comp
+*****************/
+.current-temp {
+	font-size: 80px;
+}
+
+/*****************
+Pollute comp
+*****************/
+.pollut-container > h3 {
+    font-size: 37px;
+}
+
+/*****************
+*****************/
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
 
 
 /*****************
@@ -266,6 +440,11 @@ Pollut container
 /*****************
 *****************/
 
+
+/*****************
+*****************/
+
+
 /*****************
 *****************/
 
@@ -273,3 +452,14 @@ Pollut container
 /*****************
 *****************/
 
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/
+
+
+/*****************
+*****************/

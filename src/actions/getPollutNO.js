@@ -8,8 +8,10 @@ function resolvedPollutNO(data) {
 }
 
 export default function getPollutNO(){
+	let d = new Date();
+	let date = d.toISOString();
 
-	const URL = "http://api.openweathermap.org/pollution/v1/no2/41,12/current.json?appid=698009a4dde62e48490582289f422bd2";
+	const URL = "http://api.openweathermap.org/pollution/v1/no2/41,12/"+date+".json?appid=698009a4dde62e48490582289f422bd2";
 	console.log('GET_NO')
 	return dispatch => {
 		return fetch(URL).then(  

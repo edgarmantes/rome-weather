@@ -8,9 +8,8 @@ export default class Pollut extends Component {
 
 		return (
 			<div className="pollut-container" >
-
-				<p>CO: {this.props.co}ppm</p>
-				<p>NO2: {this.props.no}ppm</p>
+				<h3>Carbon Monoxide at sea level:</h3>
+				<p>{this.props.co}ppm</p>
 			</div>
 		);
 	}
