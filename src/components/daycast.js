@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 
 export default class DayCast extends Component {
+	
+	constructor (){
+		super()
+	}
+
 	render() {
 
 		let source = "http://openweathermap.org/img/w/"+this.props.icon+".png"
 
 		return (
-			<li className={this.props.key}>
+			<li className={this.props.name}>
 				<span className="five-day">{this.props.day}</span>
 				<div className="five-temps">
 					<p className="five-hi">hi: {this.props.hi}&#176;</p>

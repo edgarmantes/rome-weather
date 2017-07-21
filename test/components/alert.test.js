@@ -1,30 +1,32 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Alerts from '../../src/components/alerts';
+import AlertsContainer, { Alerts } from '../../src/components/alerts';
 
 import configureStore from 'redux-mock-store';
 
 describe('<Alerts />' , () => {
-	const initialState ={
-		alerts: "5",
-		unit: "C",
-		tempValue: "75"
-	}
-	const mockStore = configureStore();
-	let store,wrapper
+	// const initialState ={
+	// 	getAlerts:{
+	// 		alerts : 5
+	// 	} 
+	// }
+	// const mockStore = configureStore();
+	// let store,wrapper
 
-	beforeEach( ()=>{
-		store = mockStore(initialState);
-		wrapper = mount( <Provider store={store}><Alerts /></Provider> )
-	})
+ //    beforeEach(()=>{
+ //        store = mockStore(initialState)
+ //        container = shallow(<AlertsContainer store={store} /> ) 
 
-	it('render the connected(SMART) component', () => {
-       expect(wrapper.find(ConnectedHome).length).toEqual(1)
-    });
+ //    })
 
-	// it('Renders Alerts component properly', () => {
-	// 	shallow(<Alerts />)
-	// });
+ //    it('+++ render the connected(SMART) component', () => {
+ //    	console.log(container)
+ //       expect(container.length).toEqual(1)
+ //    });
+
+	it('Renders Alerts component properly', () => {
+		shallow(<Alerts />)
+	});
 
 	// it("Renders with correct props.day value", () => {
 	// 	const day = "Friday";

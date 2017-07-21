@@ -2,7 +2,9 @@
 import { default as React, Component } from "react";
 
 export default class Pollut extends Component {
-
+	constructor (){
+		super()
+	}
 
 	render() {
 

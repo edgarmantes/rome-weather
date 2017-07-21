@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> Snapshot of App 1`] = `
+<div
+  className="app-container"
+>
+  <div
+    className="header-container"
+  >
+    <h1>
+      Rome's Weather
+    </h1>
+  </div>
+</div>
+`;

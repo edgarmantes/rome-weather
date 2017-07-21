@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import DayCast from './daycast';
 
 class FiveDay extends Component {
+	constructor (){
+		super()
+	}
 
 	render() {
 		
@@ -45,8 +48,8 @@ class FiveDay extends Component {
 					hi = Math.ceil(data.temp.max);
 					lo = Math.ceil(data.temp.min);
 				}
-
-				return <DayCast key={index} day={weekday} hi={hi} lo={lo} icon={data.weather[0].icon}/>
+					// console.log("fiveday",index)
+				return <DayCast key={index} name={index} day={weekday} hi={hi} lo={lo} icon={data.weather[0].icon}/>
 			
 			})		
 		

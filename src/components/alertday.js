@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export default class AlertDay extends Component {
+	constructor (){
+		super()
+	}
+
 	render() {
 		return (
 			<li className="alertday-item{key}" >

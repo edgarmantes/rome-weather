@@ -14,10 +14,11 @@ import getAlerts from '../actions/getAlerts';
 // Component 
 import Pollut from './pollut';
 
-class Current extends Component {
+export class Current extends Component {
 
-	constructor (props){
-		super(props);
+	constructor(props) {
+		super(props)
+
 		this.state = {value: this.props.unit};
 		this.props = {unit:<span>&#8457;</span>};
 		this.handleChange = this.handleChange.bind(this);

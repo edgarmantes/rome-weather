@@ -5,7 +5,10 @@ import getAlerts from '../actions/getAlerts'
 // Components
 import AlertDay from './alertday';
 
-class Alerts extends Component {
+export class Alerts extends Component {
+	constructor (){
+		super()
+	}
 
 	componentDidMount(){
 		this.props.dispatch(getAlerts('F'))
@@ -48,7 +51,7 @@ class Alerts extends Component {
 
 
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
 
 	return {
 		alerts: state.getAlerts.alerts,

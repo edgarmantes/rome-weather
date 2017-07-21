@@ -1,5 +1,6 @@
 import React from 'react'
 import AlertDay from '../../src/components/alertday';
+import renderer from 'react-test-renderer';
 
 describe('<AlertDay />' , () => {
 
@@ -32,6 +33,12 @@ describe('<AlertDay />' , () => {
 		const wrapper = mount(<AlertDay unit={unit} />);
 		expect(wrapper.find(".alert-temp").text()).toEqual(output)
 	})
+
+
+	it('Snapshot of AlertDay', () => {
+        const renderedValue =  renderer.create(<AlertDay />).toJSON()
+        expect(renderedValue).toMatchSnapshot();
+    });
 
 });
 
