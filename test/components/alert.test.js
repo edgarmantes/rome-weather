@@ -1,14 +1,39 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import AlertsContainer, { Alerts } from '../../src/components/alerts';
+import renderer from 'react-test-renderer';
+
+import getAlerts from '../../src/actions/getAlerts';
 
 import configureStore from 'redux-mock-store';
 
 describe('<Alerts />' , () => {
 	const initialState ={
-		alerts : <li>test</li>,
+		// alerts : <li>test</li>,
 		getAlerts:{
-			alerts : 5
+			alerts : [
+				{
+	  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+	  				"hi": "-9"
+	  			},
+	  			{
+	  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+	  				"hi": "-9"
+	  			},
+	  			{
+	  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+	  				"hi": "-9"
+	  			},
+	  			{
+	  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+	  				"hi": "-9"
+	  			},
+	  			{
+	  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+	  				"hi": "-9"
+	  			}
+
+			]
 		}, 
 		changeUnit : {
 			unit : {
@@ -17,51 +42,42 @@ describe('<Alerts />' , () => {
 				}
 			}
 		},
-		unit : "C", 
-		tempValue : "80"
+		currentTemp : { unit : "80" } 
 	}
 	const mockStore = configureStore();
 	let store,wrapper
 
     beforeEach(()=>{
         store = mockStore(initialState)
-        container = shallow(<AlertsContainer store={store} /> ) 
+        wrapper = shallow( <AlertsContainer store={store} /> )
 
     })
 
-    it('+++ render the connected(SMART) component', () => {
-    	// console.log((<AlertsContainer store={store} />))
-       expect(container.length).toEqual(1)
+    it('Render the connected(SMART) component', () => {
+
+       expect(wrapper.length).toEqual(1)
     });
 
 	it('Renders Alerts component properly', () => {
 		shallow(<Alerts />)
 	});
 
-	// it("Renders with correct props.day value", () => {
-	// 	const day = "Friday";
-	// 	const wrapper = mount(<AlertDay day={day} />);
-	// 	expect(wrapper.find(".alert-day").text()).toEqual(day)
-	// })
+	it("Renders with correct state.getAlerts.alerts value", () => {
+		expect(wrapper.node.props.store.getState().getAlerts.alerts).toBe(initialState.getAlerts.alerts)
+	})
 
-	// it("Renders with correct props.date value", () => {
-	// 	const day = "17";
-	// 	const wrapper = mount(<AlertDay date={day} />);
-	// 	expect(wrapper.find(".alert-date").text()).toEqual(day)
-	// })
+	it("Renders with correct state.changeUnit.unit.props.children value", () => {
+		expect(wrapper.node.props.store.getState().changeUnit.unit.props.children).toBe(initialState.changeUnit.unit.props.children)
+	})
 
-	// it("Renders with correct props.fahr value", () => {
-	// 	const fahr = "80";
-	// 	const output = "high of: 80";
-	// 	const wrapper = mount(<AlertDay fahr={fahr} />);
-	// 	expect(wrapper.find(".alert-temp").text()).toEqual(output)
-	// })
+	it("Renders with correct state.currentTemp.unit value", () => {
+		expect(wrapper.node.props.store.getState().currentTemp.unit).toBe(initialState.currentTemp.unit)
+	})
 
-	// it("Renders with correct props.date value", () => {
-	// 	const unit = "&#8457";
-	// 	const output = "high of: &#8457";
-	// 	const wrapper = mount(<AlertDay unit={unit} />);
-	// 	expect(wrapper.find(".alert-temp").text()).toEqual(output)
-	// })
+	it('Snapshot of Alerts', () => {
+		const wrapper = ''
+        const renderedValue =  renderer.create(<Alerts dispatch={jest.fn()} />).toJSON()
+        expect(renderedValue).toMatchSnapshot();
+    }); 
 
 });

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // components
 import DayCast from './daycast';
 
-class FiveDay extends Component {
+export class FiveDay extends Component {
 	constructor (){
 		super()
 	}

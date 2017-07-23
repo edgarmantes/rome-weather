@@ -9,8 +9,6 @@ export class Alerts extends Component {
 
 	componentDidMount(){
 		this.props.dispatch(getAlerts('F'))
-		// this.toFahrenheit(this.props.getAlerts.alerts);
-
 	}
 
 	handleChange(unit){
