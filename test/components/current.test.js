@@ -6,34 +6,28 @@ import CurrentContainer, { Current } from '../../src/components/current';
 
 describe('<Current />' , () => {
 
-
 	let wrapper
 
 	beforeEach( ()=>{
-		wrapper = shallow(<Current unit={"C"} />)
+		wrapper = shallow(<Current unit={"C"} dispatch={jest.fn()}  />)
 	})
 
 	it('Renders Current component properly', () => {
-		
-		// expect(wrapper.length).toEqual(1)
+		expect(wrapper.length).toEqual(1)
 	});
 
-	// it('Adds Day passed in value to this.props.day', () => {
-	// 	expect(wrapper.find(".five-day").text()).toEqual("Friday")
-	// })
+	it('Current has a list of options', () => {
+		expect(wrapper.find('option').length).toEqual(3);
+    // expect(wrapper.find('select [selected]').val()).to.equal('key');
+	})
 
-	// it('Adds Date passed in value to this.props.hi', () => {
-	// 	let temp = "hi: 80°"
-	// 	expect(wrapper.find(".five-hi").text()).toEqual(temp)
-	// })
+	it('Current select onChange has C', () => {
+		wrapper.find('select').simulate('change', {target: { value : "C"}});
+		expect(wrapper.find('select').props().value).toBe("C")
+	})
 
-	// it('Adds Date passed in value to this.props.lo', () => {
-	// 	let temp = "lo: 60°"
-	// 	expect(wrapper.find(".five-lo").text()).toEqual(temp)
-	// })
-
-	// it('Snapshot of DayCast', () => {
- //        const renderedValue =  renderer.create(<Current />).toJSON()
- //        expect(renderedValue).toMatchSnapshot();
- //    });
+	it('Snapshot of DayCast', () => {
+        const renderedValue =  renderer.create(<Current unit={"C"} dispatch={jest.fn()} />).toJSON()
+        expect(renderedValue).toMatchSnapshot();
+    });
 });

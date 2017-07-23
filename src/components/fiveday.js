@@ -33,22 +33,39 @@ class FiveDay extends Component {
 					weekday = myDays[(day+index)-7]
 
 				}
+				
 				if(this.props.changeUnitTo==="℉/℃"){
+					if(this.props.daysList.unit === 'Imperial'){
 
-					switch(this.props.daysList.unit){
-						case 'Imperial':
-							hi = Math.ceil(data.temp.max)+"/"+Math.ceil(((data.temp.max) - 32) * 5/9);
-							lo = Math.ceil(data.temp.min)+"/"+Math.ceil(((data.temp.min) - 32) * 5/9);
-							
-						case 'Metric':
-							hi = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.max)
-							lo = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.min)
+							hi = Math.ceil(data.temp.max)+"/"+Math.ceil(((data.temp.max) - 32) * 5/9).toString();
+							lo = Math.ceil(data.temp.min)+"/"+Math.ceil(((data.temp.min) - 32) * 5/9).toString();
+
+					} else if (this.props.daysList.unit === 'Metric') {
+							hi = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.max).toString();
+							lo = Math.ceil( (data.temp.min) * 1.8 + 32 )+"/"+Math.ceil(data.temp.min).toString();
 					}					
-				} else if (this.props.changeUnitTo==="℉" || "℃"){
+				} else if (this.props.changeUnitTo==="℉" && (this.props.unit === undefined)){
+				
 					hi = Math.ceil(data.temp.max);
 					lo = Math.ceil(data.temp.min);
+				} else if (this.props.changeUnitTo==="℉" && (this.props.daysList.unit === 'Imperial')){
+	
+					hi = Math.ceil(data.temp.max);
+					lo = Math.ceil(data.temp.min);	
+				} else if (this.props.changeUnitTo==="℉" && this.props.daysList.unit === 'Metric') {
+					
+					hi = Math.ceil(((data.temp.max) - 32) * 5/9).toString();
+					lo = Math.ceil(((data.temp.min) - 32) * 5/9).toString();
+				} else if (this.props.changeUnitTo=== "℃" && this.props.daysList.unit === 'Metric') { // Celsius
+
+					hi = Math.ceil(data.temp.max);
+					lo = Math.ceil(data.temp.min);
+				} else if (this.props.changeUnitTo=== "℃" && this.props.daysList.unit === 'Imperial') {
+
+					hi = Math.ceil( (data.temp.min) * 1.8 + 32 );
+					lo = Math.ceil( (data.temp.min) * 1.8 + 32 );
 				}
-					// console.log("fiveday",index)
+	
 				return <DayCast key={index} name={index} day={weekday} hi={hi} lo={lo} icon={data.weather[0].icon}/>
 			
 			})		

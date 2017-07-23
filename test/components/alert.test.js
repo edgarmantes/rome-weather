@@ -6,9 +6,19 @@ import configureStore from 'redux-mock-store';
 
 describe('<Alerts />' , () => {
 	// const initialState ={
+	// 	alerts : <li>test</li>,
 	// 	getAlerts:{
 	// 		alerts : 5
-	// 	} 
+	// 	}, 
+	// 	changeUnit : {
+	// 		unit : {
+	// 			props : {
+	// 				children : "F"
+	// 			}
+	// 		}
+	// 	},
+	// 	unit : "C", 
+	// 	tempValue : "80"
 	// }
 	// const mockStore = configureStore();
 	// let store,wrapper
@@ -20,7 +30,7 @@ describe('<Alerts />' , () => {
  //    })
 
  //    it('+++ render the connected(SMART) component', () => {
- //    	console.log(container)
+ //    	// console.log((<AlertsContainer store={store} />))
  //       expect(container.length).toEqual(1)
  //    });
 

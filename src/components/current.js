@@ -20,7 +20,7 @@ export class Current extends Component {
 		super(props)
 
 		this.state = {value: this.props.unit};
-		this.props = {unit:<span>&#8457;</span>};
+		// this.props = {unit:<span>&#8457;</span>};
 		this.handleChange = this.handleChange.bind(this);
 	}
 
@@ -88,10 +88,10 @@ export class Current extends Component {
 		if(!this.props.currentTemp && this.props.currentTemp===undefined){
 			currentTemp = "Wait..."
 		} else if(typeof(this.props.currentTemp)===Number){
-			currentTemp = this.props.currentTemp;
-			currentHumidity = this.props.currentHumidity;
-			currentHi = this.props.currentHi;
-			currentLow = this.props.currentLow
+			currentTemp = this.props.currentTemp.toString();
+			currentHumidity = this.props.currentHumidity.toString();
+			currentHi = this.props.currentHi.toString();
+			currentLow = this.props.currentLow.toString();
 		} else {
 			currentTemp = this.props.currentTemp;
 			currentHumidity = this.props.currentHumidity;

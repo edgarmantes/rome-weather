@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pollut /> Snapshot of Pollut 1`] = `
+<div
+  className="pollut-container"
+>
+  <h3>
+    Carbon Monoxide at sea level:
+  </h3>
+  <p>
+    ppm
+  </p>
+</div>
+`;

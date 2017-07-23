@@ -19,8 +19,6 @@ export default function(state={}, action){
 				humidity: Math.ceil(action.payload.main.humidity),
 				hi: Math.ceil(action.payload.main.temp_max),
 				lo: Math.ceil(action.payload.main.temp_min),
-				unit: action.payload.unit
-
 			})
 
 		case 'CONVERT_CURRENT_DATA':
