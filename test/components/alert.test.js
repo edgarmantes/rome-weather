@@ -5,34 +5,34 @@ import AlertsContainer, { Alerts } from '../../src/components/alerts';
 import configureStore from 'redux-mock-store';
 
 describe('<Alerts />' , () => {
-	// const initialState ={
-	// 	alerts : <li>test</li>,
-	// 	getAlerts:{
-	// 		alerts : 5
-	// 	}, 
-	// 	changeUnit : {
-	// 		unit : {
-	// 			props : {
-	// 				children : "F"
-	// 			}
-	// 		}
-	// 	},
-	// 	unit : "C", 
-	// 	tempValue : "80"
-	// }
-	// const mockStore = configureStore();
-	// let store,wrapper
+	const initialState ={
+		alerts : <li>test</li>,
+		getAlerts:{
+			alerts : 5
+		}, 
+		changeUnit : {
+			unit : {
+				props : {
+					children : "F"
+				}
+			}
+		},
+		unit : "C", 
+		tempValue : "80"
+	}
+	const mockStore = configureStore();
+	let store,wrapper
 
- //    beforeEach(()=>{
- //        store = mockStore(initialState)
- //        container = shallow(<AlertsContainer store={store} /> ) 
+    beforeEach(()=>{
+        store = mockStore(initialState)
+        container = shallow(<AlertsContainer store={store} /> ) 
 
- //    })
+    })
 
- //    it('+++ render the connected(SMART) component', () => {
- //    	// console.log((<AlertsContainer store={store} />))
- //       expect(container.length).toEqual(1)
- //    });
+    it('+++ render the connected(SMART) component', () => {
+    	// console.log((<AlertsContainer store={store} />))
+       expect(container.length).toEqual(1)
+    });
 
 	it('Renders Alerts component properly', () => {
 		shallow(<Alerts />)

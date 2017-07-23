@@ -67,12 +67,15 @@ export class Current extends Component {
 				case 'F':
 					this.props.dispatch(getCurrentData("Imperial"));
 					this.props.dispatch(changeUnit(<span>&#8457;</span>))
+					this.props.dispatch(getAlerts('F'))
 					return
 				case 'C':
 					this.props.dispatch(getCurrentData("Metric"));
 					this.props.dispatch(changeUnit(<span>&#8451;</span>))
-
+					this.props.dispatch(getAlerts('C'))
 					return
+
+
 			}			
 		}
 	}
