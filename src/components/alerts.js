@@ -25,7 +25,7 @@ export class Alerts extends Component {
 				let fahr = data.hi;
 				let cel = '';
 				let day = data.date[0] + ", " 
-				let date = data.date[1] + "/" + data.date[2];
+				let date = data.date[2] + "/" + data.date[1];
 				let unit = this.props.unit
 
 				return <AlertDay key={index} day={day}  date={date} fahr={fahr}  unit={unit}/>
