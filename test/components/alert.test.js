@@ -9,7 +9,7 @@ import configureStore from 'redux-mock-store';
 
 describe('<Alerts />' , () => {
 	const initialState ={
-		// alerts : <li>test</li>,
+
 		getAlerts:{
 			alerts : [
 				{

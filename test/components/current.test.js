@@ -18,12 +18,13 @@ describe('<Current />' , () => {
 
 	it('Current has a list of options', () => {
 		expect(wrapper.find('option').length).toEqual(3);
-    // expect(wrapper.find('select [selected]').val()).to.equal('key');
 	})
 
 	it('Current select onChange has C', () => {
-		wrapper.find('select').simulate('change', {target: { value : "C"}});
+
+		wrapper.find('select').simulate('change',{target: {value: 'C'}});
 		expect(wrapper.find('select').props().value).toBe("C")
+		
 	})
 
 	it('Snapshot of DayCast', () => {

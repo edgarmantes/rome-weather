@@ -20,7 +20,6 @@ export class Current extends Component {
 		super(props)
 
 		this.state = {value: this.props.unit};
-		// this.props = {unit:<span>&#8457;</span>};
 		this.handleChange = this.handleChange.bind(this);
 	}
 
@@ -74,8 +73,6 @@ export class Current extends Component {
 					this.props.dispatch(changeUnit(<span>&#8451;</span>))
 					this.props.dispatch(getAlerts('C'))
 					return
-
-
 			}			
 		}
 	}

@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import DayCast from './daycast';
 
 export class FiveDay extends Component {
-	constructor (){
-		super()
-	}
 
 	render() {
 		

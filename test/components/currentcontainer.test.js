@@ -22,7 +22,7 @@ describe('<CurrentContainer />' , () => {
 
     beforeEach(()=>{
         store = mockStore(initialState)
-        wrapper = shallow( <CurrentContainer store={store} /> )
+        wrapper = shallow( <CurrentContainer store={store} dispatch={jest.fn()} /> )
     })
 
     it('Render the connected(SMART) component', () => {

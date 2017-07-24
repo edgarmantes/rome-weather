@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FiveDayContainer /> Snapshot of FiveDay 1`] = `
+<div
+  className="fiveday-container col-6"
+>
+  <ul>
+    Waiting...
+  </ul>
+</div>
+`;

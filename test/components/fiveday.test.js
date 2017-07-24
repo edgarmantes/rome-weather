@@ -1,12 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import FiveDayContainer, { FiveDay } from '../../src/components/current';
+import FiveDayContainer, { FiveDay } from '../../src/components/fiveday';
 import renderer from 'react-test-renderer';
 
 import configureStore from 'redux-mock-store';
 
 describe('<FiveDayContainer />' , () => {
-	const initialState ={}
+	const initialState ={
+		fiveDay : { daysList: [] },
+		unit : "C",
+		changeUnit : { unit : { props : { children : "F"}}}
+	}
 	const mockStore = configureStore();
 	let store,wrapper
 
@@ -19,33 +23,25 @@ describe('<FiveDayContainer />' , () => {
        expect(wrapper.length).toEqual(1)
     });
 
-	it('Renders Alerts component properly', () => {
+	it('Renders FiveDay component properly', () => {
 		shallow(<FiveDay dispatch={jest.fn()} />)
 	});
 
-	// it("Renders with correct state.getAlerts.alerts value", () => {
-	// 	expect(wrapper.node.props.store.getState().currentTemp.temp).toBe(initialState.currentTemp.temp)
-	// })
+	it("Renders with correct state.fiveDay.daysList value", () => {
+		expect(wrapper.node.props.store.getState().fiveDay.daysList).toBe(initialState.fiveDay.daysList)
+	})
 
-	// it("Renders with correct state.getAlerts.alerts value", () => {
-	// 	expect(wrapper.node.props.store.getState().currentTemp.humidity).toBe(initialState.currentTemp.humidity)
-	// })
+	it("Renders with correct state.unit value", () => {
+		expect(wrapper.node.props.store.getState().unit).toBe(initialState.unit)
+	})
 
-	// it("Renders with correct state.getAlerts.alerts value", () => {
-	// 	expect(wrapper.node.props.store.getState().currentTemp.hi).toBe(initialState.currentTemp.hi)
-	// })
+	it("Renders with correct state.getAlerts.alerts value", () => {
+		expect(wrapper.node.props.store.getState().changeUnit.unit.props.children).toBe(initialState.changeUnit.unit.props.children)
+	})
 
-	// it("Renders with correct state.getAlerts.alerts value", () => {
-	// 	expect(wrapper.node.props.store.getState().currentTemp.lo).toBe(initialState.currentTemp.lo)
-	// })
-
-	// it("Renders with correct state.changeUnit.unit.props.children value", () => {
-	// 	expect(wrapper.node.props.store.getState().changeUnit.unit).toBe(initialState.changeUnit.unit)
-	// })
-
-	// it("Renders with correct state.currentTemp.unit value", () => {
-	// 	expect(wrapper.node.props.store.getState().getPollut.co).toBe(initialState.getPollut.co)
-	// })
-
+	it('Snapshot of FiveDay', () => {
+        const renderedValue =  renderer.create(<FiveDay />).toJSON()
+        expect(renderedValue).toMatchSnapshot();
+    });
 
 });
