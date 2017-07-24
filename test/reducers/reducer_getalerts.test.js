@@ -69,9 +69,8 @@ describe('GetAlerts reducer test', () => {
 		  	{
 		  		"alerts": [
 		  			{
-						"date": ["Mon,", "19", "Dec", "2016", "21:00:00", "GMT"], 
-						"hi": "-9"
-
+		  				"date": ["Mon", "Dec", "19", "2016", "15:00:00", "GMT-0600", "(Central", "Standard", "Time)"], 
+		  				"hi": "-9"
 		  			}
 		  		]
 		  	}

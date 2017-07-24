@@ -12,7 +12,7 @@ export default function(state={}, action){
 
 			let myAlerts = Object.values(alertsList).reverse().map(function(alert){			
 				// grab UTC date as String
-				let dat = new Date(alert.date).toUTCString();
+				let dat = new Date(alert.date).toString();
 	
 				// grabs high temp if that day
 				
