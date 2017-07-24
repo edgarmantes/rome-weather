@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DayCast /> Snapshot of DayCast 1`] = `
+<li
+  className={undefined}
+>
+  <span
+    className="five-day"
+  />
+  <div
+    className="five-temps"
+  >
+    <p
+      className="five-hi"
+    >
+      hi: 
+      °
+    </p>
+    <p
+      className="five-lo"
+    >
+      lo: 
+      °
+    </p>
+  </div>
+  <div
+    className="five-img-cont"
+  >
+    <img
+      className="five-img"
+      src="http://openweathermap.org/img/w/undefined.png"
+    />
+  </div>
+</li>
+`;

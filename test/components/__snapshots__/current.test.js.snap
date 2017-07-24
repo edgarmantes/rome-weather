@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Current /> Snapshot of DayCast 1`] = `
+<div
+  className="current-container"
+>
+  <div
+    className="current-weather"
+  >
+    <div
+      className="current-temp"
+    >
+      Wait...
+      <span
+        className="current-symb"
+      >
+        C
+      </span>
+    </div>
+    <div
+      className="current-range"
+    >
+      <span
+        className="current-hi"
+      >
+        hi: 
+        °/
+      </span>
+      <span>
+        lo: 
+        °
+      </span>
+    </div>
+    <div
+      className="current-humidity"
+    >
+      hum: 
+      %
+    </div>
+  </div>
+  <select
+    onChange={[Function]}
+    value="C"
+  >
+    <option
+      value="F"
+    >
+      F°
+    </option>
+    <option
+      value="C"
+    >
+      C°
+    </option>
+    <option
+      value="Both"
+    >
+      F°/C°
+    </option>
+  </select>
+  <div
+    className="pollut-container"
+  >
+    <h3>
+      Carbon Monoxide at sea level:
+    </h3>
+    <p>
+      ppm
+    </p>
+  </div>
+</div>
+`;

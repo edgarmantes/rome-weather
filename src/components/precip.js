@@ -4,7 +4,9 @@ import { default as React, Component } from "react";
 import Map from './map';
 
 export default class Precip extends Component {
-
+	constructor (){
+		super()
+	}
 
 	render() {
 

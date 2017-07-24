@@ -13,24 +13,26 @@ export default function(state={}, action){
 			let myAlerts = Object.values(alertsList).reverse().map(function(alert){			
 				// grab UTC date as String
 				let dat = new Date(alert.date).toString();
-				
+	
 				// grabs high temp if that day
+				
 				let hi = alert.conditions[0].current_value.max
 				let unit;
 
 				if(action.payload.unit==='F') {
-					unit = Math.ceil(((hi - 273.15) * 1.8) + 32)
+					unit = Math.ceil(((hi - 273.15) * 1.8) + 32).toString();
 				} else if (action.payload.unit==='C'){
-					unit = Math.ceil(hi - 273.15)
-				} else {
+					unit = Math.ceil(hi - 273.15).toString()
+				} else if (action.payload.unit==='Both'){
 					unit = Math.ceil(((hi - 273.15) * 1.8) + 32)+"/"+Math.ceil(hi - 273.15)
 				}
-
+				// console.log('unit', unit)
 				// passes object with data and high temp for each day
 				let data = {
 					date: dat,
 					hi: unit
 				}
+				
 				return data
 			})
 

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AlertDay /> Snapshot of AlertDay 1`] = `
+<li
+  className="alertday-item{key}"
+>
+  <p
+    className="alert-day"
+  >
+    <span
+      className="alert-date"
+    />
+  </p>
+  <p
+    className="alert-temp"
+  >
+    high of: 
+  </p>
+</li>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Alerts /> Snapshot of Alerts 1`] = `
+<div
+  className="alerts-container col-6"
+>
+  <h1
+    className="alerts-hdr"
+  >
+    Days over 70℉ / 21℃
+  </h1>
+  <ul />
+</div>
+`;

@@ -14,12 +14,12 @@ import getAlerts from '../actions/getAlerts';
 // Component 
 import Pollut from './pollut';
 
-class Current extends Component {
+export class Current extends Component {
 
-	constructor (props){
-		super(props);
+	constructor(props) {
+		super(props)
+
 		this.state = {value: this.props.unit};
-		this.props = {unit:<span>&#8457;</span>};
 		this.handleChange = this.handleChange.bind(this);
 	}
 
@@ -66,11 +66,12 @@ class Current extends Component {
 				case 'F':
 					this.props.dispatch(getCurrentData("Imperial"));
 					this.props.dispatch(changeUnit(<span>&#8457;</span>))
+					this.props.dispatch(getAlerts('F'))
 					return
 				case 'C':
 					this.props.dispatch(getCurrentData("Metric"));
 					this.props.dispatch(changeUnit(<span>&#8451;</span>))
-
+					this.props.dispatch(getAlerts('C'))
 					return
 			}			
 		}
@@ -87,10 +88,10 @@ class Current extends Component {
 		if(!this.props.currentTemp && this.props.currentTemp===undefined){
 			currentTemp = "Wait..."
 		} else if(typeof(this.props.currentTemp)===Number){
-			currentTemp = this.props.currentTemp;
-			currentHumidity = this.props.currentHumidity;
-			currentHi = this.props.currentHi;
-			currentLow = this.props.currentLow
+			currentTemp = this.props.currentTemp.toString();
+			currentHumidity = this.props.currentHumidity.toString();
+			currentHi = this.props.currentHi.toString();
+			currentLow = this.props.currentLow.toString();
 		} else {
 			currentTemp = this.props.currentTemp;
 			currentHumidity = this.props.currentHumidity;

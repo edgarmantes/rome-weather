@@ -5,6 +5,9 @@ import Current from './current';
 import FiveDay from './fiveday';
 
 export default class Tabs extends Component {
+	constructor (){
+		super()
+	}
 	render() {
 		return (
 			<div className="tabs-container">

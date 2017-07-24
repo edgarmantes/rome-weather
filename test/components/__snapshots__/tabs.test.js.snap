@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> Snapshot of Tabs 1`] = `
+<div
+  className="tabs-container"
+>
+  <ul
+    className="tabs"
+  >
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <li
+        className="tab-forecast tab"
+      >
+        Forecast
+      </li>
+    </a>
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <li
+        className="tab-Precip tab"
+      >
+        Precipication
+      </li>
+    </a>
+  </ul>
+</div>
+`;

@@ -5,12 +5,10 @@ import getAlerts from '../actions/getAlerts'
 // Components
 import AlertDay from './alertday';
 
-class Alerts extends Component {
+export class Alerts extends Component {
 
 	componentDidMount(){
 		this.props.dispatch(getAlerts('F'))
-		// this.toFahrenheit(this.props.getAlerts.alerts);
-
 	}
 
 	handleChange(unit){
