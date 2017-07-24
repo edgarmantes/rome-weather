@@ -9,3 +9,10 @@
 ```
 
 Listens in Port: 8080
+
+
+### Running the test environment
+
+```
+> npm test
+```
