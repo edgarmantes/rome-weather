@@ -12,7 +12,7 @@ export default function(state={}, action){
 
 			let myAlerts = Object.values(alertsList).reverse().map(function(alert){			
 				// grab UTC date as String
-				let dat = new Date(alert.date).toString();
+				let dat = new Date(alert.date).toUTCString();
 	
 				// grabs high temp if that day
 				
@@ -26,7 +26,6 @@ export default function(state={}, action){
 				} else if (action.payload.unit==='Both'){
 					unit = Math.ceil(((hi - 273.15) * 1.8) + 32)+"/"+Math.ceil(hi - 273.15)
 				}
-				// console.log('unit', unit)
 				// passes object with data and high temp for each day
 				let data = {
 					date: dat,
